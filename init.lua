@@ -187,6 +187,25 @@ require('lazy').setup({
     end,
   },
 
+  -- barbar configuration
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
+    opts = {
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
+    version = '^1.0.0', -- optional: only update when a new 1.x version is released
+  },
+
   -- typescript-tools
   {
     'pmizio/typescript-tools.nvim',
@@ -886,3 +905,14 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Neovide only options
+
+if vim.g.neovide then
+  vim.g.neovide_scale_factor = 0.8
+  vim.g.neovide_scroll_animation_length = 0.2
+  vim.g.neovide_cursor_animation_length = 0.1
+  vim.g.neovide_cursor_trail_size = 0.5
+  vim.g.neovide_refresh_rate = 90
+  vim.g.neovide_cursor_smooth_blink = true
+end

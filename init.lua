@@ -253,24 +253,26 @@ require('lazy').setup({
       -- Document existing key chains
       local wk = require 'which-key'
       wk.add {
-        { '<leader>c', group = '[C]ode' },
+        { '<leader>c', group = '[C]ode', icon = { icon = '' } },
         { '<leader>c_', hidden = true },
-        { '<leader>v', group = '[V]ersion control' },
+        { '<leader>v', group = '[V]ersion control', icon = { icon = '' } },
         { '<leader>v_', hidden = true },
-        { '<leader>s', group = '[S]earch' },
+        { '<leader>s', group = '[S]earch', icon = { icon = '' } },
         { '<leader>s_', hidden = true },
-        { '<leader>b', group = '[B]uffers' },
+        { '<leader>b', group = '[B]uffers', icon = { icon = '' } },
         { '<leader>b_', hidden = true },
-        { '<leader>bc', group = '[B]uffer [C]lose' },
+        { '<leader>bc', group = '[B]uffer [C]lose', icon = { icon = '' } },
         { '<leader>bc_', hidden = true },
-        { '<leader>bg', group = '[B]uffer [G]oto' },
+        { '<leader>bg', group = '[B]uffer [G]oto', icon = { icon = '󰞞' } },
         { '<leader>bg_', hidden = true },
-        { '<leader>bs', group = '[B]uffer [S]ort' },
+        { '<leader>bs', group = '[B]uffer [S]ort', icon = { icon = '󰒺' } },
         { '<leader>bs_', hidden = true },
-        { '<leader>e', group = '[E]ditor' },
+        { '<leader>e', group = '[E]ditor', icon = { icon = '' } },
         { '<leader>e_', hidden = true },
-        { '<leader>l', group = '[L]azy' },
+        { '<leader>l', group = '[L]azy', icon = { icon = '󰒲' } },
         { '<leader>l_', hidden = true },
+        { '<leader>d', group = '[D]iagnostics', icon = { icon = '' } },
+        { '<leader>d_', hidden = true },
       }
 
       -- which-key
@@ -281,6 +283,7 @@ require('lazy').setup({
             require('which-key').show { global = false }
           end,
           desc = 'Buffer Local Keymaps (which-key)',
+          icon = { icon = '' },
         },
       }
 
@@ -464,7 +467,7 @@ require('lazy').setup({
           map('<leader>cd', require('telescope.builtin').lsp_definitions, 'Goto [D]efinition')
           map('<leader>cr', require('telescope.builtin').lsp_references, 'Goto [R]eferences')
           map('<leader>ct', require('telescope.builtin').lsp_type_definitions, 'Goto [T]ype definition')
-          map('<leader>ca', vim.lsp.buf.code_action, '[A]ction')
+          map('<leader>ca', vim.lsp.buf.code_action, '[A]ction/Quick fix')
           map('<leader>cn', vim.lsp.buf.rename, 'Re[n]ame')
           map('<leader>cw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace symbols')
           map('<leader>cs', require('telescope.builtin').lsp_dynamic_document_symbols, 'Document [S]ymbols')

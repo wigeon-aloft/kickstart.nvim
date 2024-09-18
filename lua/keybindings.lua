@@ -4,8 +4,8 @@
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float, { desc = '[E]rror messages' })
+vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = '[Q]uickfix list' })
 
 -- Lazy keymaps
 vim.keymap.set('n', '<leader>ld', '<Cmd>Lazy show<CR>', { desc = '[L]azy [D]isplay' })
@@ -70,7 +70,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- neo-tree keymaps
 
 -- Toggle neotree with <leader>on
-vim.keymap.set('n', '<leader>on', function()
+vim.keymap.set('n', '<leader>en', function()
   local reveal_file = vim.fn.expand '%:p'
   if reveal_file == '' then
     reveal_file = vim.fn.getcwd()

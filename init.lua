@@ -109,6 +109,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -234,18 +235,16 @@ require('lazy').setup({
       wk.add {
         { '<leader>c', group = '[C]ode' },
         { '<leader>c_', hidden = true },
-        { '<leader>d', group = '[D]ocument' },
-        { '<leader>d_', hidden = true },
-        { '<leader>r', group = '[R]ename' },
-        { '<leader>d_', hidden = true },
+        { '<leader>v', group = '[V]ersion control' },
+        { '<leader>v_', hidden = true },
         { '<leader>s', group = '[S]earch' },
-        { '<leader>d_', hidden = true },
-        { '<leader>w', group = '[W]orkspace' },
-        { '<leader>d_', hidden = true },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>d_', hidden = true },
-        { '<leader>h', group = 'Git' },
-        { '<leader>d_', hidden = true },
+        { '<leader>s_', hidden = true },
+        { '<leader>b', group = '[B]uffers' },
+        { '<leader>b_', hidden = true },
+        { '<leader>e', group = '[E]ditor' },
+        { '<leader>e_', hidden = true },
+        { '<leader>l', group = '[L]azy' },
+        { '<leader>l_', hidden = true },
       }
 
       -- which-key

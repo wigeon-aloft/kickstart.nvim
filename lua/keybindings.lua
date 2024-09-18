@@ -22,6 +22,13 @@ vim.keymap.set('n', '<leader>vg', '<Cmd>LazyGit<CR>', { desc = 'Show Lazy[G]it' 
 vim.keymap.set('n', '<leader>vf', '<Cmd>LazyGitFilter<CR>', { desc = 'LazyGit [F]ilter commits' })
 vim.keymap.set('n', '<leader>vc', '<Cmd>LazyGitConfig<CR>', { desc = 'LazyGit [C]onfig' })
 
+-- Buffer management keybinds
+-- Close buffers
+vim.keymap.set('n', '<leader>bcc', '<Cmd>BufferClose<CR>', { desc = '[C]lose [C]urrent buffer' })
+vim.keymap.set('n', '<leader>bco', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = '[C]lose [O]ther buffers' })
+vim.keymap.set('n', '<leader>bcl', '<Cmd>BufferCloseBuffersLeft<CR>', { desc = '[C]lose buffers [L]eft' })
+vim.keymap.set('n', '<leader>bcr', '<Cmd>BufferCloseBuffersRight<CR>', { desc = '[C]lose buffers [R]ight' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.

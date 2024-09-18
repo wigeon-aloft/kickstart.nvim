@@ -241,6 +241,8 @@ require('lazy').setup({
         { '<leader>s_', hidden = true },
         { '<leader>b', group = '[B]uffers' },
         { '<leader>b_', hidden = true },
+        { '<leader>bc', group = '[B]uffer [C]lose' },
+        { '<leader>bc_', hidden = true },
         { '<leader>e', group = '[E]ditor' },
         { '<leader>e_', hidden = true },
         { '<leader>l', group = '[L]azy' },

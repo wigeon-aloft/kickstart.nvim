@@ -22,12 +22,33 @@ vim.keymap.set('n', '<leader>vg', '<Cmd>LazyGit<CR>', { desc = 'Show Lazy[G]it' 
 vim.keymap.set('n', '<leader>vf', '<Cmd>LazyGitFilter<CR>', { desc = 'LazyGit [F]ilter commits' })
 vim.keymap.set('n', '<leader>vc', '<Cmd>LazyGitConfig<CR>', { desc = 'LazyGit [C]onfig' })
 
--- Buffer management keybinds
--- Close buffers
+-- Buffer management
+vim.keymap.set('n', '<leader>bi', '<Cmd>BufferPin<CR>', { desc = 'P[i]n current buffer' })
+
+-- Buffer navigation
+vim.keymap.set('n', '<leader>bp', '<Cmd>BufferPrevious<CR>', { desc = '[P]revious buffer' })
+vim.keymap.set('n', '<leader>bn', '<Cmd>BufferNext<CR>', { desc = '[N]ext buffer' })
+vim.keymap.set('n', '<leader>bgi', '<Cmd>BufferGotoPinned<CR>', { desc = '[G]oto P[i]nned' })
+vim.keymap.set('n', '<leader>bg1', '<Cmd>BufferGoto 1<CR>', { desc = '[G]oto buffer 1' })
+vim.keymap.set('n', '<leader>bg2', '<Cmd>BufferGoto 2<CR>', { desc = '[G]oto buffer 2' })
+vim.keymap.set('n', '<leader>bg3', '<Cmd>BufferGoto 3<CR>', { desc = '[G]oto buffer 3' })
+vim.keymap.set('n', '<leader>bg4', '<Cmd>BufferGoto 4<CR>', { desc = '[G]oto buffer 4' })
+vim.keymap.set('n', '<leader>bg5', '<Cmd>BufferGoto 5<CR>', { desc = '[G]oto buffer 5' })
+vim.keymap.set('n', '<leader>bg6', '<Cmd>BufferGoto 6<CR>', { desc = '[G]oto buffer 6' })
+vim.keymap.set('n', '<leader>bg7', '<Cmd>BufferGoto 7<CR>', { desc = '[G]oto buffer 7' })
+vim.keymap.set('n', '<leader>bg8', '<Cmd>BufferGoto 8<CR>', { desc = '[G]oto buffer 8' })
+vim.keymap.set('n', '<leader>bg9', '<Cmd>BufferGoto 9<CR>', { desc = '[G]oto buffer 9' })
+
+-- Buffer sorting
+vim.keymap.set('n', '<leader>bsn', '<Cmd>BufferSortByName<CR>', { desc = '[S]ort by buffer [N]ame' })
+vim.keymap.set('n', '<leader>bsl', '<Cmd>BufferSortByLanguage<CR>', { desc = '[S]ort by buffer [N]ame' })
+
+-- Closing buffers
 vim.keymap.set('n', '<leader>bcc', '<Cmd>BufferClose<CR>', { desc = '[C]lose [C]urrent buffer' })
 vim.keymap.set('n', '<leader>bco', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = '[C]lose [O]ther buffers' })
 vim.keymap.set('n', '<leader>bcl', '<Cmd>BufferCloseBuffersLeft<CR>', { desc = '[C]lose buffers [L]eft' })
 vim.keymap.set('n', '<leader>bcr', '<Cmd>BufferCloseBuffersRight<CR>', { desc = '[C]lose buffers [R]ight' })
+vim.keymap.set('n', '<leader>bcp', '<Cmd>BufferCloseAllButPinned<CR>', { desc = '[C]lose all but [P]inned' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which

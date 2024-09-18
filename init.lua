@@ -163,6 +163,13 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
+  -- luarocks
+  {
+    'vhyrro/luarocks.nvim',
+    priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+    config = true,
+  },
+
   -- neo-tree minimal config
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -175,6 +182,15 @@ require('lazy').setup({
     },
     config = function()
       require('neo-tree').setup {
+        filesystem = {
+          filtered_items = {
+            hide_dotfiles = false,
+          },
+          follow_current_file = {
+            enabled = true,
+          },
+          use_libuv_file_watcher = true,
+        },
         window = {
           mappings = {
             ['P'] = { 'toggle_preview', config = { use_float = true, use_image_nvim = true } },

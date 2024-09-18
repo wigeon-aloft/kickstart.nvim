@@ -68,65 +68,14 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- Wayland yank to clipboard
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
--- neo-tree keymaps
-
--- Toggle neotree with <leader>on
-vim.keymap.set('n', '<leader>on', function()
-  local reveal_file = vim.fn.expand '%:p'
-  if reveal_file == '' then
-    reveal_file = vim.fn.getcwd()
-  else
-    local f = io.open(reveal_file, 'r')
-    if f then
-      f.close(f)
-    else
-      reveal_file = vim.fn.getcwd()
-    end
-    require('neo-tree.command').execute {
-      action = 'focus',
-      source = 'filesystem',
-      postition = 'right',
-      reveal_file = reveal_file,
-      reveal_force_cwd = true,
-      toggle = true,
-    }
-  end
-end, { desc = 'Toggle [N]eotree' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
+
+-- Import keybindings
+require 'keybindings'
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
@@ -160,6 +109,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -305,20 +255,38 @@ require('lazy').setup({
       -- Document existing key chains
       local wk = require 'which-key'
       wk.add {
-        { '<leader>c', group = '[C]ode' },
+        { '<leader>c', group = '[C]ode', icon = { icon = '' } },
         { '<leader>c_', hidden = true },
-        { '<leader>d', group = '[D]ocument' },
+        { '<leader>v', group = '[V]ersion control', icon = { icon = '' } },
+        { '<leader>v_', hidden = true },
+        { '<leader>s', group = '[S]earch', icon = { icon = '' } },
+        { '<leader>s_', hidden = true },
+        { '<leader>b', group = '[B]uffers', icon = { icon = '' } },
+        { '<leader>b_', hidden = true },
+        { '<leader>bc', group = '[B]uffer [C]lose', icon = { icon = '' } },
+        { '<leader>bc_', hidden = true },
+        { '<leader>bg', group = '[B]uffer [G]oto', icon = { icon = '󰞞' } },
+        { '<leader>bg_', hidden = true },
+        { '<leader>bs', group = '[B]uffer [S]ort', icon = { icon = '󰒺' } },
+        { '<leader>bs_', hidden = true },
+        { '<leader>e', group = '[E]ditor', icon = { icon = '' } },
+        { '<leader>e_', hidden = true },
+        { '<leader>l', group = '[L]azy', icon = { icon = '󰒲' } },
+        { '<leader>l_', hidden = true },
+        { '<leader>d', group = '[D]iagnostics', icon = { icon = '' } },
         { '<leader>d_', hidden = true },
-        { '<leader>r', group = '[R]ename' },
-        { '<leader>d_', hidden = true },
-        { '<leader>s', group = '[S]earch' },
-        { '<leader>d_', hidden = true },
-        { '<leader>w', group = '[W]orkspace' },
-        { '<leader>d_', hidden = true },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>d_', hidden = true },
-        { '<leader>h', group = 'Git' },
-        { '<leader>d_', hidden = true },
+      }
+
+      -- which-key
+      wk.add {
+        {
+          '<leader>?',
+          function()
+            require('which-key').show { global = false }
+          end,
+          desc = 'Buffer Local Keymaps (which-key)',
+          icon = { icon = '' },
+        },
       }
 
       -- visual mode
@@ -498,46 +466,15 @@ require('lazy').setup({
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          -- Jump to the definition of the word under your cursor.
-          --  This is where a variable was first declared, or where a function is defined, etc.
-          --  To jump back, press <C-t>.
-          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-
-          -- Find references for the word under your cursor.
-          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-
-          -- Jump to the implementation of the word under your cursor.
-          --  Useful when your language has ways of declaring types without an actual implementation.
-          map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-
-          -- Jump to the type of the word under your cursor.
-          --  Useful when you're not sure what type a variable is and you want to see
-          --  the definition of its *type*, not where it was *defined*.
-          map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-
-          -- Fuzzy find all the symbols in your current document.
-          --  Symbols are things like variables, functions, types, etc.
-          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-
-          -- Fuzzy find all the symbols in your current workspace.
-          --  Similar to document symbols, except searches over your entire project.
-          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-
-          -- Rename the variable under your cursor.
-          --  Most Language Servers support renaming across files, etc.
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-
-          -- Execute a code action, usually your cursor needs to be on top of an error
-          -- or a suggestion from your LSP for this to activate.
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-
-          -- Opens a popup that displays documentation about the word under your cursor
-          --  See `:help K` for why this keymap.
+          map('<leader>cd', require('telescope.builtin').lsp_definitions, 'Goto [D]efinition')
+          map('<leader>cr', require('telescope.builtin').lsp_references, 'Goto [R]eferences')
+          map('<leader>ct', require('telescope.builtin').lsp_type_definitions, 'Goto [T]ype definition')
+          map('<leader>ca', vim.lsp.buf.code_action, '[A]ction/Quick fix')
+          map('<leader>cn', vim.lsp.buf.rename, 'Re[n]ame')
+          map('<leader>cw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace symbols')
+          map('<leader>cs', require('telescope.builtin').lsp_dynamic_document_symbols, 'Document [S]ymbols')
+          map('<leader>ci', require('telescope.builtin').lsp_implementations, 'Goto [I]mplementation')
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
-
-          -- WARN: This is not Goto Definition, this is Goto Declaration.
-          --  For example, in C this would take you to the header.
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.

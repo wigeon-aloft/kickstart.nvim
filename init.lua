@@ -182,13 +182,21 @@ require('lazy').setup({
     },
     config = function()
       require('neo-tree').setup {
+        sources = { 'filesystem', 'buffers', 'git_status' },
         filesystem = {
+          bind_to_cwd = false,
           filtered_items = {
+            visible = true,
+            show_hidden_count = true,
             hide_dotfiles = false,
+            hide_by_name = {
+              '.git',
+            },
           },
           follow_current_file = {
             enabled = true,
           },
+          follow_current_file = { enabled = true },
           use_libuv_file_watcher = true,
         },
         window = {

@@ -17,6 +17,11 @@ vim.keymap.set('n', '<leader>ll', '<Cmd>Lazy log<CR>', { desc = '[L]azy [L]og' }
 vim.keymap.set('n', '<leader>lk', '<Cmd>Lazy check<CR>', { desc = '[L]azy Chec[k]' })
 vim.keymap.set('n', '<leader>ls', '<Cmd>Lazy sync<CR>', { desc = '[L]azy [S]ync' })
 
+-- Version control keymaps (LazyGit)
+vim.keymap.set('n', '<leader>vg', '<Cmd>LazyGit<CR>', { desc = 'Show Lazy[G]it' })
+vim.keymap.set('n', '<leader>vf', '<Cmd>LazyGitFilter<CR>', { desc = 'LazyGit [F]ilter commits' })
+vim.keymap.set('n', '<leader>vc', '<Cmd>LazyGitConfig<CR>', { desc = 'LazyGit [C]onfig' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.

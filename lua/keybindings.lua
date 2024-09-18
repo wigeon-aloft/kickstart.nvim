@@ -7,6 +7,16 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- Lazy keymaps
+vim.keymap.set('n', '<leader>ld', '<Cmd>Lazy show<CR>', { desc = '[L]azy [D]isplay' })
+vim.keymap.set('n', '<leader>li', '<Cmd>Lazy install<CR>', { desc = '[L]azy [I]nstall' })
+vim.keymap.set('n', '<leader>lu', '<Cmd>Lazy update<CR>', { desc = '[L]azy [U]pdate' })
+vim.keymap.set('n', '<leader>lc', '<Cmd>Lazy clean<CR>', { desc = '[L]azy [C]lean' })
+vim.keymap.set('n', '<leader>lh', '<Cmd>Lazy health<CR>', { desc = '[L]azy [H]ealth' })
+vim.keymap.set('n', '<leader>ll', '<Cmd>Lazy log<CR>', { desc = '[L]azy [L]og' })
+vim.keymap.set('n', '<leader>lk', '<Cmd>Lazy check<CR>', { desc = '[L]azy Chec[k]' })
+vim.keymap.set('n', '<leader>ls', '<Cmd>Lazy sync<CR>', { desc = '[L]azy [S]ync' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.

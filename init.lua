@@ -472,7 +472,7 @@ require('lazy').setup({
           map('<leader>ca', vim.lsp.buf.code_action, '[A]ction/Quick fix')
           map('<leader>cn', vim.lsp.buf.rename, 'Re[n]ame')
           map('<leader>cw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace symbols')
-          map('<leader>cs', require('telescope.builtin').lsp_dynamic_document_symbols, 'Document [S]ymbols')
+          map('<leader>cs', require('telescope.builtin').lsp_document_symbols, 'Document [S]ymbols')
           map('<leader>ci', require('telescope.builtin').lsp_implementations, 'Goto [I]mplementation')
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
 

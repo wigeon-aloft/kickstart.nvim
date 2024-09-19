@@ -8,14 +8,14 @@ vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float, { desc = '[E]rror m
 vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = '[Q]uickfix list' })
 
 -- Lazy keymaps
-vim.keymap.set('n', '<leader>ld', '<Cmd>Lazy show<CR>', { desc = '[L]azy [D]isplay' })
-vim.keymap.set('n', '<leader>li', '<Cmd>Lazy install<CR>', { desc = '[L]azy [I]nstall' })
-vim.keymap.set('n', '<leader>lu', '<Cmd>Lazy update<CR>', { desc = '[L]azy [U]pdate' })
-vim.keymap.set('n', '<leader>lc', '<Cmd>Lazy clean<CR>', { desc = '[L]azy [C]lean' })
-vim.keymap.set('n', '<leader>lh', '<Cmd>Lazy health<CR>', { desc = '[L]azy [H]ealth' })
-vim.keymap.set('n', '<leader>ll', '<Cmd>Lazy log<CR>', { desc = '[L]azy [L]og' })
-vim.keymap.set('n', '<leader>lk', '<Cmd>Lazy check<CR>', { desc = '[L]azy Chec[k]' })
-vim.keymap.set('n', '<leader>ls', '<Cmd>Lazy sync<CR>', { desc = '[L]azy [S]ync' })
+vim.keymap.set('n', '<leader>ld', '<Cmd>Lazy show<CR>', { desc = '[D]isplay' })
+vim.keymap.set('n', '<leader>li', '<Cmd>Lazy install<CR>', { desc = '[I]nstall' })
+vim.keymap.set('n', '<leader>lu', '<Cmd>Lazy update<CR>', { desc = '[U]pdate' })
+vim.keymap.set('n', '<leader>lc', '<Cmd>Lazy clean<CR>', { desc = '[C]lean' })
+vim.keymap.set('n', '<leader>lh', '<Cmd>Lazy health<CR>', { desc = '[H]ealth' })
+vim.keymap.set('n', '<leader>ll', '<Cmd>Lazy log<CR>', { desc = '[L]og' })
+vim.keymap.set('n', '<leader>lk', '<Cmd>Lazy check<CR>', { desc = 'Chec[k]' })
+vim.keymap.set('n', '<leader>ls', '<Cmd>Lazy sync<CR>', { desc = '[S]ync' })
 
 -- Version control keymaps (LazyGit)
 vim.keymap.set('n', '<leader>vg', '<Cmd>LazyGit<CR>', { desc = 'Show Lazy[G]it' })

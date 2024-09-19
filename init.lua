@@ -901,5 +901,5 @@ if vim.g.neovide then
 end
 
 -- Set colorscheme
-vim.o.background = 'dark'
 vim.cmd [[colorscheme gruvbox]]
+vim.g.gruvbox_contrast_dark = 'medium'

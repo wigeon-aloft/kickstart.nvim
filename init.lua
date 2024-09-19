@@ -73,7 +73,6 @@ vim.opt.scrolloff = 10
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -117,7 +116,7 @@ require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- gruvbox colorscheme
-  'ellisonleao/gruvbox.nvim',
+  'morhetz/gruvbox',
 
   -- vim-rooter (for updating cwd to project root directory dynamically)
   'airblade/vim-rooter',
@@ -902,5 +901,5 @@ if vim.g.neovide then
 end
 
 -- Set colorscheme
-vim.o.background = "dark"
-vim.cmd([[colorscheme gruvbox]])
+vim.o.background = 'dark'
+vim.cmd [[colorscheme gruvbox]]

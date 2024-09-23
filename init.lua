@@ -18,7 +18,7 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -54,6 +54,13 @@ vim.opt.timeoutlen = 300
 -- Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- Set tab-to-space settings
+vim.opt.shiftwidth = 4 -- 4-space indents
+vim.opt.smarttab = true -- Uses shiftwidth as indent
+vim.opt.expandtab = true -- Uses spaces as indent in Insert mode
+vim.opt.tabstop = 8 -- Uses spaces as indent in Insert mode
+vim.opt.softtabstop = 0 -- Uses spaces as indent in Insert mode
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
@@ -102,11 +109,7 @@ require 'keybindings'
 -- Install and setup plugins
 require 'plugins'
 
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
-
--- Neovide configuration
-
+-- If Neovide is being used, run it's configuration
 if vim.g.neovide then
   require 'neovide'
 end

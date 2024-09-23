@@ -11,20 +11,22 @@ require('lazy').setup({
   -- Plugins with more verbose/extensive configs are configured in an individual file
   -- stored in lua/custom/plugins
   require 'custom.plugins.autopairs',
-  require 'custom.plugins.gruvbox',
-  require 'custom.plugins.debug',
-  require 'custom.plugins.neo-tree',
-  require 'custom.plugins.typescript-tools',
-  require 'custom.plugins.gitsigns',
-  require 'custom.plugins.lazygit',
-  require 'custom.plugins.which-key',
-  require 'custom.plugins.telescope',
-  require 'custom.plugins.lspconfig',
-  require 'custom.plugins.conform',
+  require 'custom.plugins.barbar',
   require 'custom.plugins.cmp',
-  require 'custom.plugins.todo-comments',
+  require 'custom.plugins.conform',
+  require 'custom.plugins.debug',
+  require 'custom.plugins.gitsigns',
+  require 'custom.plugins.gruvbox',
+  require 'custom.plugins.lazygit',
+  require 'custom.plugins.lspconfig',
+  require 'custom.plugins.luarocks',
   require 'custom.plugins.mini',
+  require 'custom.plugins.neo-tree',
+  require 'custom.plugins.telescope',
+  require 'custom.plugins.todo-comments',
   require 'custom.plugins.treesitter',
+  require 'custom.plugins.typescript-tools',
+  require 'custom.plugins.which-key',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

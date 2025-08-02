@@ -1,50 +1,61 @@
-require('lazy').setup({
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+require("lazy").setup({
+	-- Detect tabstop and shiftwidth automatically
+	"tpope/vim-sleuth",
 
-  -- vim-rooter (for updating cwd to project root directory dynamically)
-  'airblade/vim-rooter',
+	-- For changing enclosing characters around strings
+	"tpope/vim-surround",
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+	-- Handy pairings and common commands
+	"tpope/vim-unimpaired",
 
-  -- Plugins with more verbose/extensive configs are configured in an individual file
-  -- stored in lua/custom/plugins
-  require 'custom.plugins.autopairs',
-  require 'custom.plugins.barbar',
-  require 'custom.plugins.cmp',
-  require 'custom.plugins.conform',
-  require 'custom.plugins.debug',
-  require 'custom.plugins.gitsigns',
-  require 'custom.plugins.gruvbox',
-  require 'custom.plugins.lazygit',
-  require 'custom.plugins.lspconfig',
-  require 'custom.plugins.luarocks',
-  require 'custom.plugins.mini',
-  require 'custom.plugins.neo-tree',
-  require 'custom.plugins.telescope',
-  require 'custom.plugins.todo-comments',
-  require 'custom.plugins.treesitter',
-  require 'custom.plugins.typescript-tools',
-  require 'custom.plugins.which-key',
+	-- Clipboard QoL
+	-- "svermeulen/vim-easyclip",
+
+	-- For updating cwd to project root directory dynamically)
+	"airblade/vim-rooter",
+
+	-- Plugins with more verbose/extensive configs are configured in an individual file
+	-- stored in lua/custom/plugins
+	require("custom.plugins.autopairs"),
+	require("custom.plugins.barbar"),
+	require("custom.plugins.cmp"),
+	require("custom.plugins.conform"),
+	require("custom.plugins.debug"),
+	-- require("custom.plugins.gdlsp"),
+	require("custom.plugins.gitsigns"),
+	require("custom.plugins.lazygit"),
+	require("custom.plugins.lspconfig"),
+	require("custom.plugins.luarocks"),
+	require("custom.plugins.mini"),
+	require("custom.plugins.neo-tree"),
+	require("custom.plugins.neovim-project"),
+	require("custom.plugins.telescope"),
+	require("custom.plugins.todo-comments"),
+	require("custom.plugins.treesitter"),
+	require("custom.plugins.typescript-tools"),
+	require("custom.plugins.ufo"),
+	require("custom.plugins.which-key"),
+	-- require("custom.themes.gruvbox"),
+	require("custom.themes.catppuccin"),
+	--require 'custom.plugins.trouble',
 }, {
-  ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
-  },
+	ui = {
+		-- If you are using a Nerd Font: set icons to an empty table which will use the
+		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+		icons = vim.g.have_nerd_font and {} or {
+			cmd = "⌘",
+			config = "🛠",
+			event = "📅",
+			ft = "📂",
+			init = "⚙",
+			keys = "🗝",
+			plugin = "🔌",
+			runtime = "💻",
+			require = "🌙",
+			source = "📄",
+			start = "🚀",
+			task = "📌",
+			lazy = "💤 ",
+		},
+	},
 })

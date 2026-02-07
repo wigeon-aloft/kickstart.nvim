@@ -77,8 +77,8 @@ vim.keymap.set("n", "<leader>xi", "<Cmd>lua require'dap'.step_into()<CR>", { des
 
 -- neo-tree keymaps
 
--- Toggle neotree with <leader>en
-vim.keymap.set("n", "<leader>en", function()
+-- Toggle neotree with <leader>n
+vim.keymap.set("n", "<leader>n", function()
 	local reveal_file = vim.fn.expand("%:p")
 	if reveal_file == "" then
 		reveal_file = vim.fn.getcwd()
@@ -92,10 +92,9 @@ vim.keymap.set("n", "<leader>en", function()
 		require("neo-tree.command").execute({
 			action = "focus",
 			source = "filesystem",
-			postition = "right",
-			reveal_file = reveal_file,
-			reveal_force_cwd = true,
-			toggle = true,
+			-- reveal_fzle = reveal_file,
+			-- reveal_force_cwd = true,
+			-- toggle = true,
 		})
 	end
 end, { desc = "Toggle [n]eotree" })

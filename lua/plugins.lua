@@ -38,6 +38,7 @@ require("lazy").setup({
 	-- require("custom.themes.gruvbox"),
 	-- require("custom.themes.catppuccin"),
 	require("custom.themes.gruvbox-material"),
+	require("custom.plugins.arduino"),
 	--require 'custom.plugins.trouble',
 }, {
 	ui = {

@@ -99,9 +99,6 @@ require("keybindings")
 -- Install and setup plugins
 require("plugins")
 
-vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme catppuccin-mocha]])
-
 -- If Neovide is being used, run it's configuration
 if vim.g.neovide then
 	require("neovide")

@@ -36,7 +36,8 @@ require("lazy").setup({
 	require("custom.plugins.ufo"),
 	require("custom.plugins.which-key"),
 	-- require("custom.themes.gruvbox"),
-	require("custom.themes.catppuccin"),
+	-- require("custom.themes.catppuccin"),
+	require("custom.themes.gruvbox-material"),
 	--require 'custom.plugins.trouble',
 }, {
 	ui = {

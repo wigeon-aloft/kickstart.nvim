@@ -49,7 +49,7 @@ vim.opt.splitbelow = true
 vim.opt.shiftwidth = 4 -- 4-space indents
 vim.opt.smarttab = true -- Uses shiftwidth as indent
 vim.opt.expandtab = true -- Uses spaces as indent in Insert mode
-vim.opt.tabstop = 8 -- Uses spaces as indent in Insert mode
+vim.opt.tabstop = 4 -- Uses spaces as indent in Insert mode
 vim.opt.softtabstop = 0 -- Uses spaces as indent in Insert mode
 
 -- Sets how neovim will display certain whitespace characters in the editor.
